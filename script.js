@@ -11,3 +11,10 @@ function getComputerChoice() {
         return `scissors`;  //return 'scissors'
     }//ENDIF
 }
+//SET function named getHumanChoice
+function getHumanChoice() {
+//GET the user option for the game and put the answer in userchoice
+    let userchoice = prompt("Enter your option for the game(rock,paper or scissor): ")
+//RETURN user choice for the game in lowercase
+    return userchoice.toLowerCase();
+}
