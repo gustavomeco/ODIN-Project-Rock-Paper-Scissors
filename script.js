@@ -26,39 +26,21 @@ function playGame() {
     let computerScore = 0;
     // SET function named playRound that uses humanChoice and computerChoice as parameters
     function playRound(humanChoice,computerChoice) {
-    // IF humanChoice is equal to `rock` and computerChoice is equal to `paper` THEN
-        if (humanChoice === `rock` && computerChoice === `paper`) { 
-            // DISPLAY "You lose! Paper beats Rock".
-            console.log(`You lose! Paper beats Rock`)
-            // return ++computerScore
-            return ++computerScore;
-        } else if (humanChoice === `rock` && computerChoice === `scissor`) { // IF humanChoice is equal to `rock` and computerChoice is equal to `scissor` THEN
-            // DISPLAY "You win! Rock beats Scissor".
-            console.log(`You win! Rock beats Scissor`)
-            // return ++humanScore
+        //if humanChoice is equal to computerChoice THEN
+        console.log(humanChoice,computerChoice)
+        if (humanChoice === computerChoice) {
+            // DISPLAY "Nobody loses! Its a Tie".  
+            console.log(`Nobody loses! Its a Tie`)
+        } else if (
+            (humanChoice === `rock` && computerChoice === `scissor`) || 
+            (humanChoice === `paper` && computerChoice === `rock`) ||
+            (humanChoice === `scissor` && computerChoice === `paper`) 
+        ) {
+            console.log(`You win! ${humanChoice} beats ${computerChoice}`)
             return ++humanScore;
-        } else if (humanChoice === `paper` && computerChoice === `rock`) { // IF humanChoice is equal to `paper` and computerChoice is equal to `rock` THEN
-            // DISPLAY "You win! Paper beats Rock".
-            console.log(`You win! Paper beats Rock`)
-            // return ++humanScore
-            return ++humanScore;
-        } else if (humanChoice === `paper` && computerChoice === `scissor`){// IF humanChoice is equal to `paper` and computerChoice is equal to `scissor` THEN
-            // DISPLAY "You lose! Scissor beats Paper".
-            console.log(`You lose! Scissor beats Paper`)
-            // return ++computerScore
+        } else {
+            console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
             return ++computerScore;
-        } else if (humanChoice === `scissor` && computerChoice === `paper`) { // IF humanChoice is equal to `scissor` and computerChoice is equal to `paper` THEN
-            // DISPLAY "You win! Scissor beats Paper".
-            console.log(`You win! Scissor beats Paper`)
-            // return ++humanScore
-            return ++humanScore;
-        } else if (humanChoice === `scissor` && computerChoice === `rock`) { // IF humanChoice is equal to `scissor` and computerChoice is equal to `rock` THEN
-            // DISPLAY "You lose! Rock beats Scissor".
-            console.log(`You lose! Rock beats Scissor`)
-            // return ++computerScore
-            return ++computerScore;
-        } else { // ELSE THEN
-            console.log(`Nobody loses! Its a Tie`) // DISPLAY "Nobody loses! Its a Tie".   
         }
     }
     //Create two new variables named humanSelection  and computerSelection in the global scope to serve as argument - put respective functions as values
