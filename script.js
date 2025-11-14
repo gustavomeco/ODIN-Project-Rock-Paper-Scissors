@@ -11,16 +11,9 @@ function getComputerChoice() {
         return `scissor`;  //return 'scissor'
     }//ENDIF
 }
-//SET function named getHumanChoice
-function getHumanChoice() {
-//GET the user option for the game and put the answer in userchoice
-    let userchoice = prompt("Enter your option for the game(rock,paper or scissor): ")
-//RETURN user choice for the game in lowercase
-    return userchoice.toLowerCase();
-}
 
 // SET function named playGame 
-function playGame() {
+function playGame(humanSelection) {
     //Create two new variables named humanScore and computerScore in the global scope. with the value of 0
     let humanScore = 0;
     let computerScore = 0;
@@ -44,7 +37,6 @@ function playGame() {
         }
     }
     //Create two new variables named humanSelection  and computerSelection in the global scope to serve as argument - put respective functions as values
-    let humanSelection;
     let computerSelection;
     //SET function named checkScore that uses computerpoint and humanpoint as parameters
     function checkScore(computerpoint,humanpoint) {
@@ -59,15 +51,19 @@ function playGame() {
             console.log(`It's a tie?`)
         }   //ENDIF
     }
-    //Create a for loop that calls five times
-    for (let i= 0; i < 5; i++) {
-        //Assign to humanSelection and computerSelection their respective functions
-        humanSelection = getHumanChoice();
-        computerSelection = getComputerChoice();
-        //calls playround
-        playRound(humanSelection,computerSelection);
-    }//end loop
-    //call checkScore and use both score as arguments
+
+    computerSelection = getComputerChoice();
+    playRound(humanSelection,computerSelection);
+
     checkScore(computerScore,humanScore);
 }
-    playGame();
+let cont = document.querySelector('#container')
+    cont.addEventListener('click',(event) => {
+        let userChoice = event.target.id
+        playGame(userChoice);
+        
+})  
+
+//Coloquei esse queryselector no container e coloquei um event listener pra pegar a escolha do usuario, passei como parametro na funcao. Chamei a funcao playGame
+//Amn devo fzr um git commit disso e fazer a parte de colocar as mensagens de vitoria do playround e dps colcoar o sistema de 5 rounds e checar score e dps reiniciar
+// colocar interface bonita dps com imagens e etc(css)
