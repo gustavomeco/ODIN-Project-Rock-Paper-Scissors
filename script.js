@@ -1,12 +1,13 @@
+// SET area
 let humanScore = 0;
 let computerScore = 0;
+let cont = document.querySelector('#container')
 const log = document.createElement("div");
 const userScore = document.querySelector('#userScore');
 const machineScore = document.querySelector('#machineScore');
+const gameImage = document.querySelector('#image');
 userScore.textContent = `USER SCORE: ${humanScore}`
 machineScore.textContent = `COMPUTER SCORE: ${computerScore}`
-
-
 
 function getComputerChoice() {
 //Generate a random number in the range of 1 - 3 and put the asnwer in randomnum
@@ -22,6 +23,7 @@ function getComputerChoice() {
 }
 
 function playGame(humanSelection) {
+    gameImage.src = 'img/matrix.png'; // altera a imagem para a primeira sempre que eu clico 
 
     function playRound(humanChoice,computerChoice) {
         console.log(humanChoice,computerChoice)
@@ -43,8 +45,10 @@ function playGame(humanSelection) {
     function checkScore(computerpoint,humanpoint) {
         if (computerpoint > humanpoint) {
             log.textContent = `Computer wins!! with ${computerpoint} points!!! with vantage of ${computerpoint - humanpoint} points`
+            gameImage.setAttribute('src', 'img/happyAgent.png');
         } else if (computerpoint < humanpoint ) { //IF humanpoint is higher than computerpoint THEN
             log.textContent = ` You win!! with ${humanpoint} points!!! with vantage of ${humanpoint - computerpoint} points`
+            gameImage.setAttribute('src', 'img/happyNeo.png');
         } else {
             log.textContent = `It's a tie?`
         }   
@@ -64,14 +68,15 @@ function playGame(humanSelection) {
     userScore.textContent = `USER SCORE: ${humanScore}`
     machineScore.textContent = `COMPUTER SCORE: ${computerScore}`
 }
-let cont = document.querySelector('#container')
-    cont.addEventListener('click',(event) => {
+
+let choice = document.querySelector('.selection')
+    choice.addEventListener('click',(event) => { //comeca o codigo quando eu clico
         let userChoice = event.target.id
         playGame(userChoice);
         
 })  
 
-//Coloquei esse queryselector no container e coloquei um event listener pra pegar a escolha do usuario, passei como parametro na funcao. Chamei a funcao playGame- DONE
-//Amn devo fzr um git commit disso e fazer a parte de colocar as mensagens de vitoria do playround e dps colcoar o sistema de 5 rounds e checar score e dps reiniciar- DONE
-
-// colocar interface bonita dps com imagens e etc(css) <- sexta terminar amn css
+cont.setAttribute("style","color: white");
+userScore.style.color = "#ffa1a1ff"
+machineScore.style.color = "#a1afff"
+log.setAttribute("style","display: flex; justify-content: center")
