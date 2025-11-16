@@ -1,11 +1,13 @@
-// SET area
-let humanScore = 0;
-let computerScore = 0;
+// DOM ELEMENTS
 let cont = document.querySelector('#container')
 const log = document.createElement("div");
 const userScore = document.querySelector('#userScore');
 const machineScore = document.querySelector('#machineScore');
 const gameImage = document.querySelector('#image');
+
+//GAME STATE 
+let humanScore = 0;
+let computerScore = 0;
 userScore.textContent = `USER SCORE: ${humanScore}`
 machineScore.textContent = `COMPUTER SCORE: ${computerScore}`
 
@@ -76,7 +78,8 @@ let choice = document.querySelector('.selection')
         
 })  
 
+//STYLES
 cont.setAttribute("style","color: white");
-userScore.style.color = "#ffa1a1ff"
-machineScore.style.color = "#a1afff"
+userScore.style.color = "#a1afff"
+machineScore.style.color = "#ff8282ff"
 log.setAttribute("style","display: flex; justify-content: center")
